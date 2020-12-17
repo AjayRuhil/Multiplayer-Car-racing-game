@@ -48,6 +48,7 @@ class Game {
     form.hide();
 
     Player.getPlayerInfo();
+    player.getCarsAtEnd();
     
     if(allPlayers !== undefined){
       background("#B79266")
@@ -93,11 +94,15 @@ class Game {
     }
     if(player.distance>3460){
       gameState=2
+      player.rank=player.rank+1
+      console.log(player.rank)
+      Player.updateCarsAtEnd(player.rank)
     }
 
     drawSprites();
   }
   end(){
     console.log("GameOver")
+    console.log("Your Rank:"+player.rank)
   }
 }
